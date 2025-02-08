@@ -46,9 +46,11 @@ body {
   font-weight: 300;
   color: var(--alabaster);
   display: flex;
+  background-color: var(--green);
   flex-direction: column;
+  justify-content: space-between;  
   line-height: 1;
-  padding: 2rem;
+  padding: 1rem;
   justify-content: flex-end; /* Aligns content to the right */
   align-items: flex-end;
 }

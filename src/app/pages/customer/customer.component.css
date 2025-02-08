@@ -12,25 +12,85 @@
     justify-content: space-between;
 }
 
+.card-line-container {
+  width: 100%; /* Full-width container */
+  overflow: hidden; /* Prevents any extra width issues */
+}
+
+.card-line {
+  width: 100%; /* Start with full width */
+  height: 2px; /* Adjust thickness */
+  background-color: var(--timber); /* Line color */
+  transform-origin: center; /* Set the origin point to the right */
+}
+
+.card-line.animate-expand {
+  animation: growFromCenter 1s ease-in-out forwards; /* Animation for expanding */
+}
+
+.card-line.animate-shrink {
+  animation: shrinkFromCenter 0.3s ease-in-out forwards; /* Animation for shrinking */
+}
+
+@keyframes shrinkFromCenter  {
+  from {
+    transform: scaleX(0.8); /* Start fully scaled down */
+  }
+  to {
+    transform: scaleX(0); /* Scale to 85% of full width */
+  }
+}
+
+@keyframes growFromCenter {
+  from {
+    transform: scaleX(0); /* Start fully scaled down */
+  }
+  to {
+    transform: scaleX(0.75); /* Scale to 85% of full width */
+  }
+}
+
 .card-container {
-    display: flex;
-    flex-direction: column;
-    gap: 17px;
-    /* padding-top: 2rem; */
-    margin-top: 30px;
-    max-height: 400px;
-    overflow-y: scroll;
-    border-radius: 8px;
-    scrollbar-width: none; 
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  margin-top: 30px;
+  max-height: 500px;
+  overflow-y: auto;
+  border-radius: 8px;
+  scrollbar-width: none;
+}
+
+
+.card {
+  border: none;
+  border-radius: 8px;
+  padding: 0.2rem;
+  background: var(--gun);
+}
+
+.collapsible {
+  background-color: var(--gun);
+  color: var(--alabaster);
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.content {
+  overflow: hidden; /* Prevents content from jumping */
+  background-color: var(--gun);
+  height: 7rem;
+}
+
+.active {
+  display: block;
+}
   
-  .card {
-    width: 100%;
-    padding: 16px;
-    border-radius: 8px;
-    background-color: var(--gun);
-    line-height: 0.8;
-  }
   
   .card h3 {
     margin: 0 0 8px 0;

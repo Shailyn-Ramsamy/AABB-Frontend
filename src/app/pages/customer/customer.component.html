@@ -19,9 +19,50 @@
 </div>
 
 <div class="card-container">
-  <div *ngFor="let item of items[0].customers" class="card">
-    <h3>{{ item.name }}</h3>
-    <p>{{ item.surname }}</p>
+  <div *ngFor="let item of items[0].customers; let i = index" class="card">
+    <button class="collapsible" (click)="toggleCard(i)">
+      <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; flex-direction: column;">
+          <div style="color: var(--alabaster); font-size: xx-large; font-weight: lighter;">
+            {{ item.name }} 
+          </div>
+          <div style="color: var(--timber);">
+            {{ item.surname }}
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; text-align: right">
+          <div style="color: var(--alabaster); font-size: xx-large; font-weight: lighter;">
+            R{{ item.tab_balance }} 
+          </div>
+          <div style="color: var(--timber);">
+            Tab Balance
+          </div>
+        </div>
+      </div>
+    </button>
+    <div class="content" [@expandCollapse]="item.isOpen ? 'expanded' : 'collapsed'">
+      <div class="card-line-container">
+        <div class="card-line"></div>
+      </div>  
+      <div style="display: flex; justify-content: space-between; padding-top: 1rem;">
+        <div style="display: flex; flex-direction: column;">
+          <div style="color: var(--alabaster); font-size: x-large; font-weight: 300;">
+            {{ item.phone_number }} 
+          </div>
+          <div style="color: var(--timber);">
+            Phone Number
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; text-align: right">
+          <div style="color: var(--alabaster); font-size: x-large; font-weight: 300;">
+            {{ item.customer_id }} 
+          </div>
+          <div style="color: var(--timber);">
+            Tab Balance
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
